@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-resourceroots='{"custom.controls.demo": "./"}'
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+
+		<script src="hybrid/sap-mobile-hybrid.js" id="sap-mobile-hybrid" type="text/javascript"></script>
+		<script src="cordova.js" onload="sap.hybrid.setCordova();" type="text/javascript"></script>
+		<script>sap.hybrid.startApp = function() {
+		var oScript = document.createElement("script");
+		oScript.text = "\
+				sap.ui.localResources(\"view\");\
+				var app = new sap.m.App({initialPage:\"idCustomControlView\"});\
+				var page = sap.ui.view({id:\"idCustomControlView\", viewName:\"custom.controls.demo.view.CustomControlView\", type:sap.ui.core.mvc.ViewType.XML});\
+				app.addPage(page);\
+				app.placeAt(\"content\");\
+		";
+		document.head.appendChild(oScript);
+
+		}</script>
+		<script>sap.hybrid.bootStrap();</script>
+
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		
+		<!--<script>
+				sap.ui.localResources("view");
+				var app = new sap.m.App({initialPage:"idCustomControlView"});
+				var page = sap.ui.view({id:"idCustomControlView", viewName:"custom.controls.demo.view.CustomControlView", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content");
+		</script>-->
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>
